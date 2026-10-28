@@ -1,0 +1,392 @@
+[
+  {
+    "ShowPhoneNumber": false,
+    "aliasName": "Naveen",
+    "birthDate": "10/04/2004",
+    "country": "India",
+    "department": "Software Services",
+    "designation": "Software Trainee",
+    "employeeType": "Full Time",
+    "facebook": "",
+    "gender": "Male",
+    "hireDate": "07/15/2026",
+    "hrContact": "Purnima Devi Kella",
+    "id": 9615,
+    "instagram": "",
+    "itgbatch": "ITG-171",
+    "linkedIn": "NOOKA NAVEENTH CHOWDARI",
+    "loginId": "nchowdari",
+    "mailId": "nchowdari@miraclesoft.com",
+    "name": "Nooka  Naveenth Chowdari ",
+    "officialBirthday": "10/04/2004",
+    "personalEmail": "nookanaveenth@gmail.com",
+    "personalPhone": "6281095049",
+    "practiceName": "Others",
+    "profilePic": "https://images.miraclesoft.com/employee-profile-pics/nchowdari.png",
+    "reportsTo": "Saradhi  Prathi",
+    "reportsTo1": "Ravi Ijju",
+    "sharePersonalPhone": false,
+    "showDobToOthers": false,
+    "skills": [
+      {
+        "skillName": "Java",
+        "skillId": 1
+      },
+      {
+        "skillName": "MySQL",
+        "skillId": 72
+      },
+      {
+        "skillName": "JDBC",
+        "skillId": 7
+      }
+    ],
+    "teamName": "Training",
+    "totalExperience": "0yr 3m",
+    "twitter": "",
+    "workPhone": "",
+    "message": "Successfully retrived the employee profile "
+  },
+  {
+    "teamName": "Training",
+    "country": "India",
+    "personalPhone": "6305158027",
+    "loginId": "mamujuri",
+    "gender": "Male",
+    "instagram": "",
+    "personalEmail": "amujurimallesh8@gmail.com",
+    "skills": [
+      {
+        "skillName": "Python programming",
+        "skillId": 3760
+      },
+      {
+        "skillName": "HTML&CSS",
+        "skillId": 5200
+      },
+      {
+        "skillName": "React JS basics",
+        "skillId": 4552
+      },
+      {
+        "skillName": "Rest APIs",
+        "skillId": 1334
+      },
+      {
+        "skillName": "sql basics",
+        "skillId": 3413
+      }
+    ],
+    "twitter": "",
+    "practiceName": "Others",
+    "ShowPhoneNumber": false,
+    "itgbatch": "ITG-171",
+    "officialBirthday": "03/08/2004",
+    "id": 9616,
+    "department": "Software Services",
+    "sharePersonalPhone": false,
+    "aliasName": "Mallesh",
+    "hireDate": "07/15/2026",
+    "profilePic": "https://images.miraclesoft.com/employee-profile-pics/mamujuri.png",
+    "facebook": "",
+    "showDobToOthers": false,
+    "reportsTo": "Saradhi  Prathi",
+    "linkedIn": "amujuri-mallesh",
+    "birthDate": "03/08/2004",
+    "employeeType": "Full Time",
+    "hrContact": "Purnima Devi Kella",
+    "totalExperience": "0yr 3m",
+    "name": "Durga Mallesh  Amujuri",
+    "workPhone": "",
+    "mailId": "mamujuri@miraclesoft.com",
+    "designation": "Software Trainee",
+    "reportsTo1": "Ravi Ijju"
+  },
+  {
+    "teamName": "Training",
+    "country": "India",
+    "personalPhone": "6281926386",
+    "loginId": "isanapathi",
+    "gender": "Female",
+    "instagram": "",
+    "personalEmail": "sanapathiindhu2003@gmail.com",
+    "skills": [
+      {
+        "skillName": "PYTHON",
+        "skillId": 107
+      },
+      {
+        "skillName": "HTML&CSS",
+        "skillId": 5200
+      },
+      {
+        "skillName": "java script",
+        "skillId": 648
+      },
+      {
+        "skillName": "SQL",
+        "skillId": 34
+      },
+      {
+        "skillName": "FastAPI",
+        "skillId": 712
+      }
+    ],
+    "twitter": "",
+    "practiceName": "Others",
+    "ShowPhoneNumber": false,
+    "itgbatch": "ITG-171",
+    "officialBirthday": "09/23/2003",
+    "id": 9614,
+    "department": "Software Services",
+    "sharePersonalPhone": false,
+    "aliasName": null,
+    "hireDate": "07/15/2026",
+    "profilePic": "https://images.miraclesoft.com/employee-profile-pics/isanapathi.png",
+    "facebook": "",
+    "showDobToOthers": false,
+    "reportsTo": "Saradhi  Prathi",
+    "linkedIn": "",
+    "birthDate": "09/23/2003",
+    "employeeType": "Full Time",
+    "hrContact": "Purnima Devi Kella",
+    "totalExperience": "0yr 3m",
+    "name": "Indhu  Sanapathi",
+    "workPhone": "",
+    "mailId": "isanapathi@miraclesoft.com",
+    "designation": "Software Trainee",
+    "reportsTo1": "Ravi Ijju"
+  },
+  {
+    "teamName": "Innovation",
+    "country": "India",
+    "personalPhone": "8317603031",
+    "loginId": "mbhasyam",
+    "gender": "Female",
+    "instagram": "",
+    "personalEmail": "meenamrutha2004@gmail.com",
+    "skills": [
+      {
+        "skillName": "Java",
+        "skillId": 1
+      },
+      {
+        "skillName": "MySQL",
+        "skillId": 72
+      },
+      {
+        "skillName": "HTML/CSS",
+        "skillId": 3958
+      },
+      {
+        "skillName": "Javascript",
+        "skillId": 9
+      },
+      {
+        "skillName": "React",
+        "skillId": 281
+      },
+      {
+        "skillName": "Canva",
+        "skillId": 6079
+      }
+    ],
+    "twitter": "",
+    "practiceName": "Innovation",
+    "ShowPhoneNumber": false,
+    "itgbatch": "ITG-171",
+    "officialBirthday": "01/11/2004",
+    "id": 9608,
+    "department": "Software Services",
+    "sharePersonalPhone": false,
+    "aliasName": "Meenamrutha ",
+    "hireDate": "07/15/2026",
+    "profilePic": "https://images.miraclesoft.com/employee-profile-pics/mbhasyam.png",
+    "facebook": "",
+    "showDobToOthers": false,
+    "reportsTo": "Veerababu Pilli",
+    "linkedIn": "bhasyam-meenamrutha-b95a77257",
+    "birthDate": "01/11/2004",
+    "employeeType": "Full Time",
+    "hrContact": "Lohitha Bondi",
+    "totalExperience": "0yr 3m",
+    "name": "Meenamrutha  Bhasyam",
+    "workPhone": "",
+    "mailId": "mbhasyam@miraclesoft.com",
+    "designation": "Innovation",
+    "reportsTo1": "Ravi Ijju",
+    "message": "Successfully retrived the employee profile "
+  },
+  {
+    "teamName": "Innovation",
+    "country": "India",
+    "personalPhone": "9966384856",
+    "loginId": "aganivada",
+    "gender": "Female",
+    "instagram": "",
+    "personalEmail": "amulyaraniganivadaganivada@gmail.com",
+    "skills": [
+      {
+        "skillName": "Java",
+        "skillId": null
+      },
+      {
+        "skillName": "JDBC",
+        "skillId": null
+      },
+      {
+        "skillName": "Spring boot",
+        "skillId": null
+      },
+      {
+        "skillName": "MySQL",
+        "skillId": null
+      }
+    ],
+    "twitter": "",
+    "practiceName": "Innovation",
+    "ShowPhoneNumber": false,
+    "itgbatch": "ITG-171",
+    "officialBirthday": "05/22/2004",
+    "id": 6029,
+    "department": "Software Services",
+    "sharePersonalPhone": false,
+    "aliasName": "Amulya",
+    "hireDate": "07/15/2026",
+    "profilePic": null,
+    "facebook": "",
+    "showDobToOthers": false,
+    "reportsTo": "vamsi",
+    "linkedIn": "Ganivada Amulya Rani",
+    "birthDate": "05/22/2004",
+    "employeeType": "Intern",
+    "hrContact": "Lohitha Bondi",
+    "totalExperience": "3 months",
+    "name": "Amulya Rani Ganivada",
+    "workPhone": "",
+    "mailId": "amulyaraniganivada52@gmail.com",
+    "designation": "Innovation",
+    "reportsTo1": "Ravi Ijju",
+    "message": "Successfully retrived the employee profile "
+  },
+  {
+    "id": 9620,
+    "loginId": "mravi",
+    "name": "Ravi ",
+    "mailId": "raviroyal6789@gmail.com",
+    "personalEmail": "raviroyal6789@gmail.com",
+    "personalPhone": "9876543210",
+    "department": "Software Services",
+    "practiceName": "Innovation",
+    "designation": "Software Trainee",
+    "reportsTo": "Raja Ramesh",
+    "hrContact": "Manasa",
+    "teamName": "Sales",
+    "hireDate": "07/15/2026",
+    "profilePic": "https://images.miraclesoft.com/employee-profile-pics/jdoe.png"
+  },
+  {
+  "data": {
+    "teamName": "Innovation",
+    "country": "India",
+    "personalPhone": "9390712173",
+    "loginId": "speddi",
+    "gender": "Female",
+    "instagram": "",
+    "personalEmail": "peddisuji49@gmail.com",
+    "skills": [
+      {
+        "skillName": "Java",
+        "skillId": null
+      },
+      {
+        "skillName": "Spring boot",
+        "skillId": null
+      },
+      {
+        "skillName": "MySQL",
+        "skillId": null
+      }
+    ],
+    "twitter": "",
+    "practiceName": "Innovation",
+    "ShowPhoneNumber": false,
+    "itgbatch": "ITG-171",
+    "officialBirthday": "08/01/2005",
+    "id": 6028,
+    "department": "Software Services",
+    "sharePersonalPhone": false,
+    "aliasName": "Sujatha",
+    "hireDate": "07/15/2026",
+    "profilePic": null,
+    "facebook": "",
+    "showDobToOthers": false,
+    "reportsTo": "Raja Ramesh",
+    "linkedIn": "SUJI PEDDI",
+    "birthDate": "08/01/2005",
+    "employeeType": "Intern",
+    "hrContact": "Lohitha Bondi",
+    "totalExperience": "3 months",
+    "name": "Sujatha Peddi",
+    "workPhone": "",
+    "mailId": "speddi@gmail.com",
+    "designation": "Innovation",
+    "reportsTo1": "Ravi Ijju"
+  }
+},
+{
+    "teamName": "Training",
+    "country": "India",
+    "personalPhone": "6281926386",
+    "loginId": "ssanapathi",
+    "gender": "Female",
+    "instagram": "",
+    "personalEmail": "sanapathisindhu2003@gmail.com",
+    "skills": [
+      {
+        "skillName": "PYTHON",
+        "skillId": 107
+      },
+      {
+        "skillName": "HTML&CSS",
+        "skillId": 5200
+      },
+      {
+        "skillName": "java script",
+        "skillId": 648
+      },
+      {
+        "skillName": "SQL",
+        "skillId": 34
+      },
+      {
+        "skillName": "FastAPI",
+        "skillId": 712
+      }
+    ],
+    "twitter": "",
+    "practiceName": "Others",
+    "ShowPhoneNumber": false,
+    "itgbatch": "ITG-171",
+    "officialBirthday": "09/23/2003",
+    "id": 9614,
+    "department": "Software Services",
+    "sharePersonalPhone": false,
+    "aliasName": null,
+    "hireDate": "07/15/2026",
+    "profilePic": "https://images.miraclesoft.com/employee-profile-pics/isanapathi.png",
+    "facebook": "",
+    "showDobToOthers": false,
+    "reportsTo": "Saradhi  Prathi",
+    "linkedIn": "",
+    "birthDate": "09/23/2003",
+    "employeeType": "Full Time",
+    "hrContact": "Purnima Devi Kella",
+    "totalExperience": "0yr 3m",
+    "name": "Sindhu  Sanapathi",
+    "workPhone": "",
+    "mailId": "ssanapathi@miraclesoft.com",
+    "designation": "Software Trainee",
+    "reportsTo1": "Ravi Ijju"
+  }
+]

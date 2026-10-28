@@ -1,0 +1,25 @@
+# Project_R - Python dependencies
+# Install with: pip install -r requirements.txt
+
+# Web API / Auth
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+bcrypt
+
+# Computer Vision / Face Recognition
+opencv-contrib-python
+numpy
+insightface
+onnxruntime
+
+# Environment variables
+python-dotenv
+
+# Mock Hubble employee API and attendance-to-Hubble requests
+httpx
+pymongo
+
+# Weekly and monthly XLSX attendance reports
+openpyxl

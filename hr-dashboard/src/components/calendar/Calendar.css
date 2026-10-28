@@ -1,0 +1,643 @@
+/* ==========================================================================
+   FaceAttend Enterprise - Modern Card Attendance Calendar UI
+   Matches the clean card aesthetic:
+   - Monday-first 7-column layout (Mon, Tue, Wed, Thu, Fri, Sat, Sun)
+   - Rounded day cards with pastel fills:
+     * Present: soft green (#ecfdf3) with green text (#15803d)
+     * Absent: soft red (#fef2f2) with red text (#dc2626)
+     * Weekend: soft cool slate (#f1f5f9) with slate text (#1e293b)
+     * Upcoming: soft sky blue (#e0f2fe) with blue text (#0284c7)
+     * Leave: soft purple (#f3e8ff) with purple text (#7c3aed)
+     * Inactive (prev/next month): muted gray (#f8fafc / #cbd5e1)
+   - Blue selection outline (2px solid #009fe3)
+   - Right sidebar:
+     * "This Month" summary card with 4 count pills (Present, Absent, Weekend, Leaves)
+     * "Attendance Legend" card with colored swatches
+   ========================================================================== */
+
+.miracle-calendar-container-v2 {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1e293b;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Header Bar: [<] ... Month Year ... [>] ... [Today]
+   -------------------------------------------------------------------------- */
+.miracle-cal-header-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 20px;
+  background: #ffffff;
+}
+
+.miracle-cal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.miracle-cal-month-title-v2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.4px;
+}
+
+.miracle-cal-nav-btn-v2 {
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease;
+}
+
+.miracle-cal-nav-btn-v2:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.miracle-cal-nav-btn-v2:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.miracle-cal-today-btn-v2 {
+  background: #ffffff;
+  color: #0084ff;
+  border: 1.5px solid #0084ff;
+  border-radius: 10px;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 132, 255, 0.08);
+}
+
+.miracle-cal-today-btn-v2:hover:not(:disabled) {
+  background: #f0f7ff;
+}
+
+/* --------------------------------------------------------------------------
+   Layout: Calendar Grid on Left, Sidebar on Right
+   -------------------------------------------------------------------------- */
+.miracle-cal-layout-v2 {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.miracle-cal-grid-column-v2 {
+  flex: 1 1 74%;
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.miracle-cal-sidebar-column-v2 {
+  flex: 0 0 240px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Weekday Headers (Mon ... Sun)
+   -------------------------------------------------------------------------- */
+.miracle-cal-weekdays-row-v2 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.miracle-cal-weekday-header-v2 {
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #334155;
+  padding: 4px 0;
+}
+
+/* --------------------------------------------------------------------------
+   Day Grid & Day Block Cards
+   -------------------------------------------------------------------------- */
+.miracle-cal-days-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.miracle-cal-day-card-v2 {
+  border-radius: 12px;
+  min-height: 78px;
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  user-select: none;
+  box-sizing: border-box;
+  border: 1.5px solid transparent;
+}
+
+.miracle-cal-day-card-v2:hover:not(.type-inactive) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.miracle-cal-day-card-v2.is-selected {
+  border-color: #0084ff !important;
+  box-shadow: 0 0 0 2px rgba(0, 132, 255, 0.25);
+}
+
+.miracle-cal-day-num-v2 {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.miracle-cal-day-label-v2 {
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.1px;
+}
+
+/* 1. Present Card: Soft Green */
+.miracle-cal-day-card-v2.type-present {
+  background: #ebfbee;
+}
+.miracle-cal-day-card-v2.type-present .miracle-cal-day-num-v2 {
+  color: #16a34a;
+}
+.miracle-cal-day-card-v2.type-present .miracle-cal-day-label-v2 {
+  color: #16a34a;
+}
+
+/* 2. Half Day Card: Soft Amber */
+.miracle-cal-day-card-v2.type-half-day,
+.miracle-cal-day-card-v2.type-half {
+  background: #fef3c7;
+}
+.miracle-cal-day-card-v2.type-half-day .miracle-cal-day-num-v2,
+.miracle-cal-day-card-v2.type-half .miracle-cal-day-num-v2 {
+  color: #d97706;
+}
+.miracle-cal-day-card-v2.type-half-day .miracle-cal-day-label-v2,
+.miracle-cal-day-card-v2.type-half .miracle-cal-day-label-v2 {
+  color: #d97706;
+}
+
+/* 2. Absent Card: Soft Red/Pink */
+.miracle-cal-day-card-v2.type-absent {
+  background: #fdf2f2;
+}
+.miracle-cal-day-card-v2.type-absent .miracle-cal-day-num-v2 {
+  color: #dc2626;
+}
+.miracle-cal-day-card-v2.type-absent .miracle-cal-day-label-v2 {
+  color: #dc2626;
+}
+
+/* 3. Weekend Card: Soft Slate/Gray */
+.miracle-cal-day-card-v2.type-weekend {
+  background: #f1f5f9;
+}
+.miracle-cal-day-card-v2.type-weekend .miracle-cal-day-num-v2 {
+  color: #0f172a;
+}
+.miracle-cal-day-card-v2.type-weekend .miracle-cal-day-label-v2 {
+  color: #64748b;
+}
+
+/* 4. Upcoming Card: Soft Sky Blue */
+.miracle-cal-day-card-v2.type-upcoming {
+  background: #e0f2fe;
+}
+.miracle-cal-day-card-v2.type-upcoming .miracle-cal-day-num-v2 {
+  color: #0284c7;
+}
+.miracle-cal-day-card-v2.type-upcoming .miracle-cal-day-label-v2 {
+  color: #0284c7;
+}
+
+/* 5. Leave Card: Soft Purple */
+.miracle-cal-day-card-v2.type-leave {
+  background: #f3e8ff;
+}
+.miracle-cal-day-card-v2.type-leave .miracle-cal-day-num-v2 {
+  color: #7c3aed;
+}
+.miracle-cal-day-card-v2.type-leave .miracle-cal-day-label-v2 {
+  color: #7c3aed;
+}
+
+/* 6. Inactive Card: Muted Gray (prev / next month) */
+.miracle-cal-day-card-v2.type-inactive {
+  background: #f8fafc;
+  cursor: default;
+}
+.miracle-cal-day-card-v2.type-inactive .miracle-cal-day-num-v2 {
+  color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar Cards: "This Month" and "Attendance Legend"
+   -------------------------------------------------------------------------- */
+.miracle-sidebar-card-v2 {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.miracle-sidebar-title-v2 {
+  margin: 0 0 14px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Stats Pill Stack */
+.miracle-stats-stack-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.miracle-stat-pill-v2 {
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.miracle-stat-num-v2 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  min-width: 28px;
+}
+
+.miracle-stat-label-v2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Pill Variations */
+.miracle-stat-pill-v2.pill-present {
+  background: #ebfbee;
+}
+.miracle-stat-pill-v2.pill-present .miracle-stat-num-v2 {
+  color: #16a34a;
+}
+.miracle-stat-pill-v2.pill-present .miracle-stat-label-v2 {
+  color: #16a34a;
+}
+
+.miracle-stat-pill-v2.pill-half {
+  background: #fef3c7;
+}
+.miracle-stat-pill-v2.pill-half .miracle-stat-num-v2 {
+  color: #d97706;
+}
+.miracle-stat-pill-v2.pill-half .miracle-stat-label-v2 {
+  color: #d97706;
+}
+
+.miracle-stat-pill-v2.pill-absent {
+  background: #fdf2f2;
+}
+.miracle-stat-pill-v2.pill-absent .miracle-stat-num-v2 {
+  color: #dc2626;
+}
+.miracle-stat-pill-v2.pill-absent .miracle-stat-label-v2 {
+  color: #dc2626;
+}
+
+.miracle-stat-pill-v2.pill-weekend {
+  background: #f1f5f9;
+}
+.miracle-stat-pill-v2.pill-weekend .miracle-stat-num-v2 {
+  color: #0f172a;
+}
+
+.miracle-stat-pill-v2.pill-leave {
+  background: #f3e8ff;
+}
+.miracle-stat-pill-v2.pill-leave .miracle-stat-num-v2 {
+  color: #7c3aed;
+}
+.miracle-stat-pill-v2.pill-leave .miracle-stat-label-v2 {
+  color: #7c3aed;
+}
+
+/* Legend Swatches */
+.miracle-legend-list-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.miracle-legend-item-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.miracle-legend-swatch-v2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.miracle-legend-swatch-v2.swatch-present {
+  background: #86efac;
+}
+.miracle-legend-swatch-v2.swatch-half {
+  background: #fcd34d;
+}
+.miracle-legend-swatch-v2.swatch-absent {
+  background: #fca5a5;
+}
+.miracle-legend-swatch-v2.swatch-weekend {
+  background: #94a3b8;
+}
+.miracle-legend-swatch-v2.swatch-upcoming {
+  background: #7dd3fc;
+}
+.miracle-legend-swatch-v2.swatch-leave {
+  background: #c084fc;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .miracle-cal-layout-v2 {
+    flex-direction: column;
+  }
+  .miracle-cal-sidebar-column-v2 {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Selected Day Detailed Breakdown Drawer / Section
+   -------------------------------------------------------------------------- */
+.miracle-cal-day-details-panel {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  margin-top: 16px;
+}
+
+.miracle-cal-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.miracle-cal-details-title-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.miracle-cal-details-date-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.miracle-cal-details-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+}
+
+.miracle-cal-details-status-text {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.miracle-cal-status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.miracle-cal-status-badge.pill-present {
+  background: #ebfbee;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.miracle-cal-status-badge.pill-absent {
+  background: #fdf2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.miracle-cal-status-badge.pill-weekend {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.miracle-cal-status-badge.pill-leave {
+  background: #f3e8ff;
+  color: #7c3aed;
+  border: 1px solid #e9d5ff;
+}
+
+.miracle-cal-status-badge.pill-half {
+  background: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+.miracle-cal-leave-info {
+  margin-top: 4px;
+  color: #7c3aed;
+  font-size: 13px;
+}
+
+.miracle-cal-details-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.miracle-cal-action-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.miracle-cal-action-btn.btn-primary {
+  background: #ffffff;
+  color: #0084ff;
+  border: 1.5px solid #0084ff;
+}
+
+.miracle-cal-action-btn.btn-primary:hover:not(:disabled) {
+  background: #f0f7ff;
+}
+
+.miracle-cal-action-btn.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.miracle-cal-action-btn.btn-danger {
+  background: #ffffff;
+  color: #dc2626;
+  border: 1.5px solid #dc2626;
+}
+
+.miracle-cal-action-btn.btn-danger:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+/* Metrics Grid */
+.miracle-cal-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.miracle-cal-metric-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.miracle-cal-metric-label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.miracle-cal-metric-value {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 4px;
+}
+
+/* Subheadings */
+.miracle-cal-section-container {
+  margin-top: 16px;
+}
+
+.miracle-cal-subheading {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+/* Sessions Table */
+.miracle-cal-table {
+  width: 100%;
+  font-size: 12.5px;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.miracle-cal-table th {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  color: #475569;
+}
+
+.miracle-cal-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+}
+
+.miracle-cal-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Event Pills */
+.miracle-cal-events-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.miracle-cal-event-pill {
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  border: 1px solid;
+}
+
+.miracle-cal-event-pill.event-in {
+  background: #ebfbee;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.miracle-cal-event-pill.event-out {
+  background: #e0f2fe;
+  color: #0284c7;
+  border-color: #bae6fd;
+}
